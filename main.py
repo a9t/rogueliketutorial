@@ -49,10 +49,14 @@ def main() -> None:
         vsync=True,
     ) as context:
         root_console = tcod.Console(screen_width, screen_height, order="F")
+        counter = 0
         while True:
             engine.render(console=root_console, context=context)
 
             events = tcod.event.wait()
+
+            print(f'Turn {counter} actions:')
+            counter += 1
 
             engine.handle_events(events)
 
